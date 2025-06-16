@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Krishi Calendar | Kisan AI Saathi{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/krishi_calendar.css') }}">
+  {% endblock %}
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+
+  
+
+  {% block content %}
+
+  <div class="krishi-container">
+    <header>
+      <h1>🌾 कृषि कैलेंडर</h1>
+      <p>अपने क्षेत्र और फसल के अनुसार कृषि गतिविधियाँ जानें</p>
+    </header>
+
+    <div class="filters">
+      <input type="text" id="search" placeholder="🔍 फसल या महीना खोजें...">
+      <select id="month-filter" onchange="showKrishiData()">
+        <option value="">सभी महीने</option>
+        <option value="जनवरी">जनवरी</option>
+          <option value="फरवरी">फरवरी</option>
+          <option value="मार्च">मार्च</option>
+          <option value="अप्रैल">अप्रैल</option>
+          <option value="मई">मई</option>
+          <option value="जून">जून</option>
+          <option value="जुलाई">जुलाई</option>
+          <option value="अगस्त">अगस्त</option>
+          <option value="सितंबर">सितंबर</option>
+          <option value="अक्टूबर">अक्टूबर</option>
+          <option value="नवंबर">नवंबर</option>
+          <option value="दिसंबर">दिसंबर</option>
+      </select>
+    </div>
+
+    <div id="calendar" class="calendar-grid"></div>
+  </div>
+  {% endblock %}
+  {% block extra_js %}
+  <script src="{{ url_for('static', filename='js/krishi_calendar.js') }}"></script>
+  {% endblock %}

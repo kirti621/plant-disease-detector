@@ -1,0 +1,76 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f3fff1;
+    color: #2e4e2e;
+  }
+  
+  .krishi-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    color: #2d6a4f;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    color: #4f6f4f;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  input, select {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #bcd4bc;
+    border-radius: 12px;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background: #ffffff;
+    border-left: 6px solid #2d6a4f;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
+  .card h3 {
+    margin-top: 0;
+    color: #2d6a4f;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
