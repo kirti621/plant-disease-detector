@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Upload | Kisan AI Saathi{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>🌿 फसल रोग पहचान</h1>
+
+  <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+    <label for="file-upload" class="upload-label">तस्वीर चुनें</label>
+    <input type="file" name="image" id="file-upload" accept="image/*" required onchange="previewImage(event)" />
+    <div class="preview" id="image-preview"></div>
+    <button type="submit">अपलोड करें</button>
+  </form>
+
+  <div class="spinner" id="spinner" style="display: none;">
+    <img src="{{ url_for('static', filename='spinner.gif') }}" alt="Loading...">
+  </div>
+
+  {% if disease_name %}
+  <div class="result success">
+    <div class="icon">✅</div>
+    <div class="result-container">
+      <h2>🔍 परिणाम:</h2>
+      <p><strong>रोग:</strong> {{ disease_name }}</p>
+      <p><strong>सटीकता:</strong> {{ confidence }}%</p>
+      <p><strong>विवरण:</strong> {{ description }}</p>
+      <p><strong>उपचार:</strong> {{ treatment }}</p>
+      <p><strong>कीटनाशक:</strong> {{ pesticide }}</p>
+    </div>
+
+    {% if image_path %}
+    <div style="margin-top: 15px;">
+      <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px;">
+    </div>
+    {% endif %}
+
+    
+  </div>
+  {% endif %}
+</div>
+
+<script>
+  function previewImage(event) {
+    const preview = document.getElementById('image-preview');
+    preview.innerHTML = '';
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function () {
+      const img = document.createElement('img');
+      img.src = reader.result;
+      img.style.maxWidth = '100%';
+      preview.appendChild(img);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
+  document.getElementById('upload-form').addEventListener('submit', function () {
+    document.getElementById('spinner').style.display = 'block';
+  });
+</script>
+{% endblock %}

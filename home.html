@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Kisan AI Saathi | Smart Farming Assistant{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Kisan AI Saathi 🌾</h1>
+    <p>Ek smart AI assistant jo har kisan bhai ke liye hai – beej se le kar bazaar tak, har kadam pe aapka saathi!</p>
+    <a href="/upload" class="cta-btn">Shuru Karein</a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 40px;">
+    <!-- Feature 1: Plant Disease Detection -->
+    <a href="/upload" class="feature-card" style="text-decoration: none; color: inherit;">
+      <img src="{{ url_for('static', filename='images/plant-disease.png') }}" alt="Upload" style="width: 100px; height: auto;">
+      <h3>रोगों की पहचान</h3>
+      <p>पौधे की तस्वीर अपलोड करके बीमारी का तुरंत पता लगाएं और इलाज पाएं।</p>
+    </a>
+  
+    <!-- Feature 2: Weather API -->
+    <a href="/weather_api" class="feature-card" style="text-decoration: none; color: inherit;">
+      <img src="{{ url_for('static', filename='images/voice-assistant.png') }}" alt="Weather" style="width: 100px; height: auto;">
+      <h3>मौसम जानकारी</h3>
+      <p>अपने क्षेत्र का मौसम जानिए और खेती की योजना बनाइए।</p>
+    </a>
+  
+    <!-- Feature 3: Krishi Calendar -->
+    <a href="/krishi-calendar" class="feature-card" style="text-decoration: none; color: inherit;">
+      <img src="{{ url_for('static', filename='images/calendar.png') }}" alt="Calendar" style="width: 100px; height: auto;">
+      <h3>कृषि कैलेंडर</h3>
+      <p>महीने के हिसाब से खेती के काम की पूरी जानकारी यहां मिलेगी।</p>
+    </a>
+  </section>
+
+  <!-- Note Section -->
+  <section class="note">
+    <p>🚀 Bahut jald aur naye features jaise Mausam Jankari, Khaad Calculator, aur Offline PWA Support bhi judne wale hain!</p>
+  </section>
+
+{% endblock %}
